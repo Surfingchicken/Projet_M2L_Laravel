@@ -58,7 +58,7 @@ button{
     background: transparent;
     font-size: inherit;
 }
-a{
+a, select{
     text-decoration: none;
     color: #222;
 }
@@ -74,6 +74,12 @@ section{
     background-origin: content-box;
 }
 /*theme*/
+main{
+    background-color: #fff;
+    color: #222;
+    margin-top: 3rem;
+    text-align: center;
+}
 header{
     background: rgb(236,59,55);
     background: linear-gradient(180deg, rgba(236,59,55,1) 55%, rgba(225,67,135,1) 100%);    
@@ -89,7 +95,7 @@ header h1{
     line-height: 3rem;
     margin-left: 2rem;
 }
-header button {
+header a {
     display: inline-block;
     line-height: 4rem;
     font-size: 15px;
@@ -110,21 +116,18 @@ header button {
     position: relative;
     top: 0.5rem;
 }
-main{
-    background-color: #fff;
-    color: #222;
-    margin: 3rem 15vw 3rem 15vw;
-    text-align: center;
-}
+
 h2{
     padding: 2rem;
     font-size: 50px;
     font-weight: 400;
+}
+.underlined{
     border-bottom: solid 0.1rem #0000001f;
 }
 h3{
-    font-size: medium;
-    font-weight: 200;
+    font-size: 2rem;
+    font-weight: 300;
     padding: 2rem;
 }
 .input-area{
@@ -132,32 +135,58 @@ h3{
     grid-template-rows: repeat(2,1fr);
     gap: 1rem;
     margin: auto;
-    width: 70%;
+    width: 55%;
 }
 .input-area div{
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 1rem;
 }
-form div label{
+label{
     font-weight:200 ;
+    text-align: right;
+}
+.input-area label{
     text-align: right;
     line-height: 4rem;
     position: relative;
     top: 2px;
 }
-form div input{
+input, select{
     border: solid 0.1rem #0000001f;
     border-radius: 2px ;
     padding:  0 1rem;
     line-height: 4rem;
+    height: 4rem;
+    background-color: #fff;
+}
+
+option{
+    text-transform: capitalize;
 }
 form input[type="submit"]{
     background: rgb(236,59,55);
     background: linear-gradient(180deg, rgba(236,59,55,1) 55%, rgba(225,67,135,1) 100%); 
     color: #fff;
     width: fit-content;
-    padding: 1rem 2rem 1rem 2rem; 
+    padding: 0 2rem; 
     border-radius: 2px;  
     margin: 2rem auto;
+    text-transform:uppercase;
+    font-weight: 600;
+}
+.selected{
+    background-color: rgba(0, 0, 0, 0.2) ;
+}
+.error ul{
+    display: grid;
+    color: #fff;
+    font-weight: 200;
+    width: 60vw;
+    background-color: #fb000080;
+    text-transform: uppercase;
+    margin: auto;
+    text-align: left;
+    padding: 2rem;
+    gap: 1rem;
 }

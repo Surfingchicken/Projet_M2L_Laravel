@@ -1,0 +1,187 @@
+header{
+    display: grid;
+    grid-template-columns: 1fr min-content;
+}
+header ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr max-content;
+    line-height: 4rem;
+    font-size: 15px;
+    font-weight: 400;
+    position: absolute;
+    right: 1rem;
+}
+header ul li{
+    margin: auto;
+    padding: 0 1rem;
+}
+header ul li:hover{
+    cursor: pointer;
+}
+header ul li a{
+    position: initial;
+    background-color: initial;
+}
+header ul li img{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    margin: auto;
+}
+h2{
+    border-bottom: none;
+}
+button:hover{
+    cursor: pointer;
+}
+section h3{
+    font-size: 2rem;
+    font-weight: 300;
+}
+section h4{
+    font-weight: 300;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+button{
+    background: rgb(236,59,55);
+    background: linear-gradient(180deg, rgba(236,59,55,1) 55%, rgba(225,67,135,1) 100%); 
+    color: #fff;
+    width: fit-content;
+    padding: 1rem 2rem 1rem 2rem; 
+    border-radius: 2px;  
+    margin: 2rem auto;
+    text-transform:uppercase;
+}
+.card{
+    width: 45vw;
+    height: 35vh;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    font-weight: 400;
+    color: #00000075;
+    box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.1);
+}
+.card img{
+    object-fit:cover;
+    height: 35vh;
+    width: calc(2/5*45vw);
+}
+.card figcaption{
+    position: relative;
+}
+.card figcaption>ul{
+    height: 70%;
+    text-align: left;
+    margin: 3rem;
+    display: grid;
+    grid-template-rows: 3fr 2fr 2fr 2fr 2fr;
+}
+.card figcaption ul li{
+    margin:0;
+}
+.card figcaption ul li ul{
+    display: grid;
+    grid-template-columns: max-content 1fr;
+}
+.card figcaption ul li ul .nom{
+    color: initial;
+    font-weight: 500;
+    font-size: large;
+}
+.card figcaption ul li ul .age, .card ul li ul .pays{
+    margin: auto 0rem auto 0.5rem;
+    text-align: left;
+}
+
+
+.card figcaption ul .contacts a{
+    color: #df1598fe;
+    text-decoration: underline;
+    text-decoration-thickness: 1px ;
+   
+}
+.card figcaption ul .contacts, .card ul .anniv{
+    font-size: smaller;
+}
+.card figcaption ul li>span{
+    font-size: 15px ;
+    position: relative;
+    top: 0.2rem;
+}
+.secteur{
+    padding: 0.5rem;
+    background-color: #159cdffe;
+    color: #fff;
+    text-transform: capitalize;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+/*page liste*/
+
+.liste-collab{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    row-gap: 5vw;
+    margin-bottom: 3rem;
+}
+.search-options{
+    margin: 4rem 2.5vw;
+    display: grid;
+    grid-template-columns: 3fr 2fr 2fr;
+
+}
+.search-options *{
+    margin: auto;
+}
+.search-options label{
+    font-size: small;
+}
+.search-bar{
+    width: 100%;
+}
+::placeholder{
+    opacity: 0.3;
+}
+.search-options div select{
+    width: 15vw;
+    font-size: 15px;
+    font-weight: 200;
+    /*-webkit-appearance: none;*/
+    background-color: transparent;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    z-index: 1;
+}
+/* page profil*/
+.infos-profil{
+
+    margin: 3rem auto 0;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    grid-template-rows: repeat(12,1fr);
+    width: 45vw;
+    row-gap: 1rem;
+}
+.infos-profil label{
+    text-align: right;
+    line-height: 4rem;
+    position: relative;
+    top: 2px;
+    margin-right: 1rem;
+}
+.infos-profil select, .infos-profil input{
+    padding-left: 1rem;
+    font-size: 15px;
+    font-weight: 200;
+}
+input[type="date"]{
+    font-weight: 200;
+    font-family: inherit;
+
+}
+
