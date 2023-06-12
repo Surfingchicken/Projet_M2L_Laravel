@@ -6,8 +6,7 @@
         <link rel="stylesheet" href="{{asset('css/main.css')}}">
         <link rel="stylesheet" href="{{asset('css/connexion.css')}}">
        <!---<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-        ---><title>Laravel</title>
-
+        ---><title>M2L</title>
     </head>
     <body>
         <header>
@@ -26,9 +25,9 @@
                         Liste
                      </a>
                 </li>
-                <li><a href="{{url('/profil')}}" ><img src="https://placehold.jp/40/0056d6/ffffff/50x50.png?text=A" alt="profilepic"></a></li>
+                <li><a href="{{url('/profil')}}" ><img src="{{Auth::user()->url_photo}}" alt="profilepic"></a></li>
                 <li>
-                    <a href="{{url('/')}}">
+                    <a href="{{url('/logout')}}">
                         <span class="m_co material-symbols-outlined">
                             logout
                         </span>
@@ -43,184 +42,76 @@
             <h2 class="underlined">
                 Liste des collaborateurs
             </h2>
-            <form >
+            <form action="liste" method="POST" >
+                @csrf
                 <fieldset class="search-options">
-                        <input type="search" placeholder="Recherche..." class="search-bar">
+                        <input type="text" id="search" name="search" placeholder="Recherche..." class="search-bar form-control">
                         <div>
                             <label for="search">Rechercher par :</label>
-                            <select id="infos" name="infos">
-                                <option value="nom">Nom</option>
-                                <option value="prenom">Prenom</option>
-                                <option value="ville">Ville</option>
-                                <option value="pays">Pays</option>
+                            <select id="attribute" name="attribute">
+                                @php
+                                    $opt_attribute_search=["nom","prenom","ville","pays"];
+                                @endphp 
+                                @foreach ($opt_attribute_search as $attribute_search)
+                                    <option  value={{$attribute_search}}>{{$attribute_search}}</option>;
+                                
+                                @endforeach
                             </select>
                         </div>                     
                        <div>
                             <label for="catégorie">Catégorie :</label>
-                            <select id="categ" name="categ">
-                                <option value="null">- Aucun -</option>
-                                <option value="technique">Technique</option>
-                                <option value="marketing">Marketing</option>
-                                <option value="administratif">Administratif</option>
-                                <option value="client">Client</option>
+                            <select id="categorie" name="categorie">
+                                @php
+                                    $opt_categorie_search=["Aucun","Technique","Marketing","Client","Administratif"];
+                                @endphp 
+                                @foreach ($opt_categorie_search as $categorie_search)
+                                    <option value={{$categorie_search}}>{{$categorie_search}}</option>;
+                                @endforeach   
                             </select>
                         </div>
                 </fieldset>
             </form>
             <section>     
                 <ul class="liste-collab">
-                    <li>
-                        <figure class="card">
-                            <img src="https://placehold.jp/40/f5ec00/ffffff/200x200.png?text=B" alt="profilpic">
-                            <figcaption>
-                                <ul>
-                                    <li>
-                                        <ul>
-                                            <li class="nom">Baranabus Barnabus</li>
-                                            <li class="age">(25 ans)</li>
-                                        </ul> 
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li class="ville">Paris,</li>
-                                            <li class="pays">France</li>
-                                        </ul> 
-                                    </li>
-                                    <li class="contacts"><span class="material-symbols-outlined">
-                                        mail
+                    @foreach ($Users as $user)
+                    <figure class="card">
+                        <img src={{$user->url_photo}} alt="profilpic">
+                        <figcaption>
+                            <ul>
+                                <li>
+                                    <ul>
+                                        <li class="nom">{{$user->nom}} {{$user->prenom}}</li>
+                                        <li class="age">({{$user->age}})</li>
+                                    </ul> 
+                                </li>
+                                <li>
+                                    <ul>
+                                        <li class="ville">{{$user->ville}},</li>
+                                        <li class="pays">{{$user->pays}}</li>
+                                    </ul> 
+                                </li>
+                                <li class="contacts"><span class="material-symbols-outlined">
+                                    mail
+                                    </span>
+                                    <a href="">{{$user->email}}</a> 
+                                </li>
+                                <li class="contacts"><span class="material-symbols-outlined">
+                                        phone_enabled
                                         </span>
-                                        <a href="">laalala@la.la</a> 
+                                        <a href="">{{$user->telephone}}</a> 
                                     </li>
-                                    <li class="contacts"><span class="material-symbols-outlined">
-                                            phone_enabled
+                                    <li class="anniv">
+                                        <span class="material-symbols-outlined">
+                                            cake
                                             </span>
-                                            <a href="">06-09-07-21-22</a> 
-                                        </li>
-                                        <li class="anniv">
-                                            <span class="material-symbols-outlined">
-                                                cake
-                                                </span>
-                                            Anniversaire : 18 Août
-                                        </li>
-                                </ul>
-                                <sup class="secteur">Technique</sup>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li>
-                        <figure class="card">
-                            <img src="https://placehold.jp/40/f5ec00/ffffff/200x200.png?text=B" alt="profilpic">
-                            <figcaption>
-                                <ul>
-                                    <li>
-                                        <ul>
-                                            <li class="nom">Baranabus Barnabus</li>
-                                            <li class="age">(25 ans)</li>
-                                        </ul> 
+                                            {{\Carbon\Carbon::parse($user->birth)->format('d - F')}}
                                     </li>
-                                    <li>
-                                        <ul>
-                                            <li class="ville">Paris,</li>
-                                            <li class="pays">France</li>
-                                        </ul> 
-                                    </li>
-                                    <li class="contacts"><span class="material-symbols-outlined">
-                                        mail
-                                        </span>
-                                        <a href="">laalala@la.la</a> 
-                                    </li>
-                                    <li class="contacts"><span class="material-symbols-outlined">
-                                            phone_enabled
-                                            </span>
-                                            <a href="">06-09-07-21-22</a> 
-                                        </li>
-                                        <li class="anniv">
-                                            <span class="material-symbols-outlined">
-                                                cake
-                                                </span>
-                                            Anniversaire : 18 Août
-                                        </li>
-                                </ul>
-                                <sup class="secteur">Technique</sup>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li>
-                        <figure class="card">
-                            <img src="https://placehold.jp/40/f5ec00/ffffff/200x200.png?text=B" alt="profilpic">
-                            <figcaption>
-                                <ul>
-                                    <li>
-                                        <ul>
-                                            <li class="nom">Baranabus Barnabus</li>
-                                            <li class="age">(25 ans)</li>
-                                        </ul> 
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li class="ville">Paris,</li>
-                                            <li class="pays">France</li>
-                                        </ul> 
-                                    </li>
-                                    <li class="contacts"><span class="material-symbols-outlined">
-                                        mail
-                                        </span>
-                                        <a href="">laalala@la.la</a> 
-                                    </li>
-                                    <li class="contacts"><span class="material-symbols-outlined">
-                                            phone_enabled
-                                            </span>
-                                            <a href="">06-09-07-21-22</a> 
-                                        </li>
-                                        <li class="anniv">
-                                            <span class="material-symbols-outlined">
-                                                cake
-                                                </span>
-                                            Anniversaire : 18 Août
-                                        </li>
-                                </ul>
-                                <sup class="secteur">Technique</sup>
-                            </figcaption>
-                        </figure>
-                    </li>
-                    <li>
-                        <figure class="card">
-                            <img src="https://placehold.jp/40/f5ec00/ffffff/200x200.png?text=B" alt="profilpic">
-                            <figcaption>
-                                <ul>
-                                    <li>
-                                        <ul>
-                                            <li class="nom">Baranabus Barnabus</li>
-                                            <li class="age">(25 ans)</li>
-                                        </ul> 
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li class="ville">Paris,</li>
-                                            <li class="pays">France</li>
-                                        </ul> 
-                                    </li>
-                                    <li class="contacts"><span class="material-symbols-outlined">
-                                        mail
-                                        </span>
-                                        <a href="">laalala@la.la</a> 
-                                    </li>
-                                    <li class="contacts"><span class="material-symbols-outlined">
-                                            phone_enabled
-                                            </span>
-                                            <a href="">06-09-07-21-22</a> 
-                                        </li>
-                                        <li class="anniv">
-                                            <span class="material-symbols-outlined">
-                                                cake
-                                                </span>
-                                            Anniversaire : 18 Août
-                                        </li>
-                                </ul>
-                                <sup class="secteur">Technique</sup>
-                            </figcaption>
-                        </figure>
-                    </li>
+                                </li>
+                            </ul>
+                            <sup class="secteur {{$user->categorie}}">{{$user->categorie}}</sup>
+                        </figcaption>
+                    </figure>
+                    @endforeach
                 </ul>
             </section>
         </main>

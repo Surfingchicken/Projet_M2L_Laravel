@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{{asset('css/main.css')}}">
        <!---<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-        ---><title>Laravel</title>
+        ---><title>M2L</title>
 
     </head>
     <body>
@@ -17,12 +17,6 @@
                 </span> 
                 Intranet
             </h1>
-            <a href="{{url('/connexion')}}">
-                <span class="m_co material-symbols-outlined">
-                    login
-                </span>
-                Connexion
-            </a>
         </header>
 
         <main>

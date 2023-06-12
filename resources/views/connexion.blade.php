@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="{{asset('css/main.css')}}">
         <link rel="stylesheet" href="{{asset('css/connexion.css')}}">
        <!---<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-        ---><title>Laravel</title>
+        ---><title>M2L</title>
 
     </head>
     <body>
@@ -30,7 +30,7 @@
                     <li><a href="{{url('/profil')}}"><img src="{{Auth::user()->url_photo}}" alt="profilepic"></a></li>
                 @endauth
                 <li>
-                    <a href="{{url('/')}}">
+                    <a href="{{url('/logout')}}">
                         <span class="m_co material-symbols-outlined">
                             logout
                         </span>
@@ -86,7 +86,7 @@
                                 </li>
                             </li>
                         </ul>
-                        <sup class="secteur">Technique</sup>
+                        <sup class="secteur" class="$user->categorie">{{$RandomUser->categorie}}</sup>
                     </figcaption>
                 </figure>
                 

@@ -74,6 +74,14 @@ section{
     background-origin: content-box;
 }
 /*theme*/
+:root{
+    --main-element-color:rgb(236,59,55);
+    --error-background:#fb000080;
+    --tech-cat:#159cdffe;
+    --marketing-cat:#b77503fe;
+    --admin-cat:#900202fe;
+    --client-cat:#00c925fe;
+}
 main{
     background-color: #fff;
     color: #222;
@@ -81,7 +89,7 @@ main{
     text-align: center;
 }
 header{
-    background: rgb(236,59,55);
+    background: var(--main-element-color);
     background: linear-gradient(180deg, rgba(236,59,55,1) 55%, rgba(225,67,135,1) 100%);    
     color: #fff;
     height: 4rem;
@@ -165,7 +173,7 @@ option{
     text-transform: capitalize;
 }
 form input[type="submit"]{
-    background: rgb(236,59,55);
+    background: var(--main-element-color);
     background: linear-gradient(180deg, rgba(236,59,55,1) 55%, rgba(225,67,135,1) 100%); 
     color: #fff;
     width: fit-content;
@@ -183,10 +191,22 @@ form input[type="submit"]{
     color: #fff;
     font-weight: 200;
     width: 60vw;
-    background-color: #fb000080;
+    background-color: var(--error-background);
     text-transform: uppercase;
     margin: auto;
     text-align: left;
     padding: 2rem;
     gap: 1rem;
+}
+.Technique{
+    background-color: var(--tech-cat);
+}
+.Administratif{
+    background-color: var(--admin-cat);
+}
+.Client{
+    background-color: var(--client-cat);
+}
+.Marketing{
+    background-color: var(--marketing-cat);
 }
