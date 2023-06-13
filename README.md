@@ -5,7 +5,9 @@ Il est composé de 4 pages, connexion , accueil, profil et liste qui permettent 
 Il fonctionne exclusivement en local avec l'utilisation de MAMP et phpMyAdmin.
 
 ### Il répond au cahier des charges ci-dessous: 
-![Enocé M2L:](/public/asset/Projet_MDL.pdf)
+![Enoncé M2L:](/public/asset/Projet_MDL-1.png)
+![:](/public/asset/Projet_MDL-2.png)
+![:](/public/asset/Projet_MDL-2.png)
 
 ![Lien vers la documentation du projet:](https://github.com/Surfingchicken/PresentationProjetWebSysteme.git)
 
