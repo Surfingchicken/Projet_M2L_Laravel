@@ -11,17 +11,6 @@ class UpdateUserController extends Controller
 {
     //
     public function updateUser(UpdateProfileRequest $request){
-        /*if ($request->filled('password')){
-            $request->validate([
-                'password' => 'nullable|confirmed|min:8'
-            ]);
-            $user->update($request->all());
-            $user->update([
-                'password'=> Hash::make($request->password)]);
-        }
-        else{
-            $user->update([array_filter($request->all())]);
-        }*/
         $request->whenFilled('password', function (string $password) use($request) {
             $request->validate([
                 'password' => 'filled|confirmed|min:8'

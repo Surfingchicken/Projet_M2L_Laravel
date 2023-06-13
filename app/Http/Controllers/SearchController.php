@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use DB;
-use Illuminate\Support\Facades\Input;
+
 
 class SearchController extends Controller
 {
     
-    public function getAllUser(Request $request){
+    public function getAllUser(){
             $_AllUsers = DB::table('user')->get();
             return view('liste', ['Users'=>$_AllUsers]);
         
