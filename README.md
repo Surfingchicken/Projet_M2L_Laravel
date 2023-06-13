@@ -9,5 +9,4 @@ Il fonctionne exclusivement en local avec l'utilisation de MAMP et phpMyAdmin.
 ![:](/public/asset/Projet_MDL-2.png)
 ![:](/public/asset/Projet_MDL-2.png)
 
-![Lien vers la documentation du projet:](https://github.com/Surfingchicken/PresentationProjetWebSysteme.git)
-
+Lien vers la doc : ![https://github.com/Surfingchicken/PresentationProjetWebSysteme.git]
